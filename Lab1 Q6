@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int compare(const void *a, const void *b) {
+    return (*(int *)a - *(int *)b);
+}
+
+int main() {
+    int i, n;
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+
+    if (n == 0) {
+        printf("Output: None (List is empty)\n");
+        return 0;
+    }
+
+    int arr[n];
+    printf("Enter elements:\n");
+    for (i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
+    qsort(arr, n, sizeof(int), compare);
+
+    int max = arr[n - 1];
+    printf("Output: %d\n", max);
+
+    return 0;
+}
